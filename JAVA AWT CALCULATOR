@@ -1,0 +1,296 @@
+package AWT;
+import java.awt.*;
+import java.awt.event.*;
+
+
+class frame extends Frame implements ActionListener, WindowListener {
+   Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,add,sub,mul,clear,div,eq,mod,negative,col;
+  TextField tf;
+    String s1, s2 ,s3,s4,s5,z;
+    int a =0,b=0,c=0 ,d=0;
+    frame(){
+b0 = new Button("0");
+        b1 = new Button("1");
+        b2 = new Button("2");
+        Color c = new Color(93, 108, 119);
+col = new Button("colour");
+        b3 = new Button("3");
+        b4 = new Button("4");
+        b5= new Button("5");
+        mod = new Button("%");
+        negative = new Button("NEG");
+        b6 = new Button("6");
+        b7 = new Button("7");
+        b8= new Button("8");
+        b9 = new Button("9");
+        tf = new TextField(20);
+        eq = new Button("=");
+        add = new Button("+");
+        sub = new Button("-");
+        mul = new Button("*");
+        div = new Button("/");
+        add(tf);
+        add(b0);
+        add(b1);
+        add(b2);
+        add(b3);
+        add(b4);
+        add(b5);
+        add(b6);
+        add(b7);
+        add(b8);
+        add(b9);
+        add(add);
+        add(sub);
+        add(mul);
+        add(div);
+        add(eq);
+        add(negative);
+        add(col);
+        add(mod);
+        clear = new Button("CE");
+        add(clear);
+        clear.addActionListener(this);
+        mod.addActionListener(this);
+        negative.addActionListener(this);
+setLayout(null);
+setSize(500,500);
+setVisible(true);
+addWindowListener(this);
+
+b0.addActionListener(this);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        add.addActionListener(this);
+        sub.addActionListener(this);
+        mul.addActionListener(this);
+        col.addActionListener(this);
+        div.addActionListener(this);
+eq.addActionListener(this);
+tf.setBounds(44,103,292,66);
+clear.setBounds(24,203,54,54);
+mod.setBounds(100,203,54,54);
+div.setBounds(176,203,54,54);
+negative.setBounds(252,203,54,54);
+b0.setBounds(24,257,54,54);
+b1.setBounds(100,257,54,54);
+        b2.setBounds(176,257,54,54);
+        b3.setBounds(252,257,54,54);
+        b4.setBounds(24,310,54,54);
+        b5.setBounds(100,310,54,54);
+        b6.setBounds(176,310,54,54);
+        b7.setBounds(252,310,54,54);
+        b8.setBounds(24,360,54,54);
+        b9.setBounds(100,360,54,54);
+add.setBounds(252,360,54,105);
+eq.setBounds(176,360,54,54);
+sub.setBounds(24,370+40,54,54);
+mul.setBounds(100,370+40,54,54);
+col.setBounds(176,370+40,54,54);
+setBackground(Color.DARK_GRAY);
+        tf.setBackground(c);
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == col){
+            setBackground(Color.GRAY);
+        }
+     if(e.getSource() == b0){
+
+         s2 =tf.getText();
+         s1 ="0";
+         s3= s2 + s1;
+         tf.setText(s3);
+         c=1;
+     }
+        if(e.getSource() == b1){
+            s2 =tf.getText();
+            s1 ="1";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        }
+        if(e.getSource() == b2){
+            s2 =tf.getText();
+            s1 ="2";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        }
+        if(e.getSource() == b3){
+            s2 =tf.getText();
+            s1 ="3";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        }
+        if(e.getSource() == b4){
+            s2 =tf.getText();
+            s1 ="4";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        }
+
+        if(e.getSource() == b5){
+            s2 =tf.getText();
+            s1 ="5";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        } if(e.getSource() == b6){
+            s2 =tf.getText();
+            s1 ="6";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        } if(e.getSource() == b7){
+            s2 =tf.getText();
+            s1 ="7";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+
+        }
+        if(e.getSource() == b8){
+            s2 =tf.getText();
+            s1 ="8";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        } if(e.getSource() == b9){
+
+            s2 =tf.getText();
+            s1 ="9";
+            s3= s2 + s1;
+            tf.setText(s3);
+
+        }
+        if(e.getSource() == add){
+            a = Integer.parseInt(tf.getText());
+             z = "";
+tf.setText(z);
+            c=1;
+        }
+        if(e.getSource() == sub){
+            a = Integer.parseInt(tf.getText());
+            z = "";
+            tf.setText(z);
+            c=2;
+        }
+        if(e.getSource() == mul){
+            a = Integer.parseInt(tf.getText());
+            z = "";
+            tf.setText(z);
+            c=3;
+        }
+        if(e.getSource() == div){
+            a = Integer.parseInt(tf.getText());
+            z = "";
+            tf.setText(z);
+            c=4;
+        }
+        if(e.getSource() == mod){
+            a = Integer.parseInt(tf.getText());
+            z = "";
+            tf.setText(z);
+            c=5;
+        }
+        if(e.getSource() == negative){
+            a = Integer.parseInt(tf.getText());
+            z = "";
+            d = a - 2*a;
+            tf.setText(Integer.toString(d));
+            c=6;
+        }
+        if(e.getSource() == clear){
+           a=0;
+           b=0;
+           d=0;
+           tf.setText("");
+        }
+
+        if(e.getSource() == eq) {
+
+            if (c==1) {
+                b = Integer.parseInt(tf.getText());
+                d = a + b;
+                tf.setText(Integer.toString(d));
+            }
+            if (c==2) {
+                b = Integer.parseInt(tf.getText());
+                d = a - b;
+                tf.setText(Integer.toString(d));
+            }
+            if (c==3) {
+                b = Integer.parseInt(tf.getText());
+                d = a * b;
+                tf.setText(Integer.toString(d));
+            }
+            if (c==4) {
+                b = Integer.parseInt(tf.getText());
+                d = a / b;
+                tf.setText(Integer.toString(d));
+            }
+            if (c==5) {
+                b = Integer.parseInt(tf.getText());
+                d = a % b;
+                tf.setText(Integer.toString(d));
+            }
+
+
+
+        }
+
+
+
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        System.exit(0);
+    }
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
+}
+public class Calculator {
+    public static void main(String[] args) {
+frame f = new frame();
+    }
+}
