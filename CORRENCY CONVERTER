@@ -1,0 +1,261 @@
+package AWT;
+import java.awt.*;
+import java.awt.event.*;
+
+class Currency extends Frame implements ActionListener, WindowListener, ItemListener {
+    Panel panel;
+    Choice c,d;
+    Label l1,l2,l3,real;
+    TextField tf1,tf3;
+    Button b1;
+    double a,b,res;
+    double z= 1.0;
+    Currency(){
+        panel = new Panel();
+        c = new Choice();
+        b1 = new Button("START");
+        d = new Choice();
+        real = new Label("CURRENCY CONVERTER");
+        real.setFont(new Font("BOLD",Font.PLAIN,23));
+        panel.add(real);
+        real.setBounds(30,40,300,50);
+        panel.setBounds(0,0,350,370);
+        b1.setBounds(150,200,50,50);
+        panel.add(b1);
+        add(panel);
+        panel.setBackground(Color.cyan);
+        b1.addActionListener(this);
+        panel.setVisible(true);
+        panel.setLayout(null);
+        Label l4 = new Label("ENTER VALUE :");
+        l1 = new Label("FROM :" );
+        l2 = new Label("TO :");
+        l3 = new Label("ANS :");
+        tf1 = new TextField(20);
+        tf3 = new TextField(20);
+        c.add("SELECT");
+        c.add("INR");
+        c.add("USD");
+        c.add("EUR");
+        c.add("JPY");
+        c.add("ZAR");
+        c.add("AUD/NZD");
+        d.add("SELECT");
+        d.add("INR");
+        d.add("USD");
+        d.add("EUR");
+        d.add("JPY");
+        d.add("ZAR");
+        d.add("AUD/NZD");
+        add(l4);
+        add(l1);
+        add(c);
+        add(tf1);
+        add(l2);
+        add(d);
+        add(l3);
+        add(tf3);
+        add(l4);
+//        l4.setVisible(false);
+//        l1.setVisible(false);
+//        c.setVisible(false);
+//        tf1.setVisible(false);
+//        l2.setVisible(false);
+//        d.setVisible(false);
+//        l3.setVisible(false);
+//        tf3.setVisible(false);
+        c.addItemListener(this);
+        d.addItemListener(this);
+        addWindowListener(this);
+        setVisible(true);
+        setLayout(null);
+        setSize(350,370);
+        Color jp = new Color(94, 91, 91);
+        setBackground(jp);
+        l4.setBackground(Color.PINK);
+        l3.setBackground(Color.PINK);
+        l2.setBackground(Color.PINK);
+        l1.setBackground(Color.PINK);
+        c.setBackground(Color.CYAN);
+        d.setBackground(Color.CYAN);
+        tf1.setBackground(Color.ORANGE);
+        tf3.setBackground(Color.ORANGE);
+        l4.setBounds(20,40,100,20);
+        l1.setBounds(20,130,70,20);
+        c.setBounds(190,130,100,20);
+        tf1.setBounds(190,40,100,20);
+        l2.setBounds(20,220,70,20);
+        d.setBounds(190,220,100,20);
+        l3.setBounds(20,310,70,20);
+        tf3.setBounds(190,310,100,20);
+
+
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+System.exit(0);
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+a=Double.parseDouble(tf1.getText());
+        if(c.getSelectedItem() == "INR" && d.getSelectedItem() == "USD"){
+            res = a/76.2125;
+        }
+        if(c.getSelectedItem() == "INR" && d.getSelectedItem() == "INR"){
+            res = a;
+        }
+        if(c.getSelectedItem() == "INR" && d.getSelectedItem() == "EUR"   ){
+            res = a*0.012;
+        }
+        if(c.getSelectedItem() == "INR" && d.getSelectedItem() == "JPY"   ){
+            res = a*1.6795;
+        }
+        if(c.getSelectedItem() == "INR" && d.getSelectedItem() == "ZAR"   ){
+            res = a*0.20305;
+        }
+        if(c.getSelectedItem() == "INR" && d.getSelectedItem() == "AUD/NZD"   ){
+            res = a*0.01806;
+        }
+        if(c.getSelectedItem() == "USD" && d.getSelectedItem() == "USD"   ){
+            res = a;
+        }
+        if(c.getSelectedItem() == "USD" && d.getSelectedItem() == "INR"   ){
+            res = a*76.47;
+        }
+        if(c.getSelectedItem() == "USD" && d.getSelectedItem() == "EUR"   ){
+            res = a*0.926;
+        }
+        if(c.getSelectedItem() == "USD" && d.getSelectedItem() == "JPY"   ){
+            res = a*128.47;
+        }
+        if(c.getSelectedItem() == "USD" && d.getSelectedItem() == "ZAR"   ){
+            res = a*15.52;
+        }
+        if(c.getSelectedItem() == "USD" && d.getSelectedItem() == "AUD/NZD"   ){
+            res = a*1.38;
+        }
+        if(c.getSelectedItem() == "EUR" && d.getSelectedItem() == "USD"   ){
+            res = a*1.0819;
+        }
+        if(c.getSelectedItem() == "EUR" && d.getSelectedItem() == "INR"   ){
+            res = a*82.73;
+        }
+        if(c.getSelectedItem() == "EUR" && d.getSelectedItem() == "EUR"   ){
+            res = a;
+        }
+        if(c.getSelectedItem() == "EUR" && d.getSelectedItem() == "JPY"   ){
+            res = a*138.84;
+        }
+        if(c.getSelectedItem() == "EUR" && d.getSelectedItem() == "ZAR"   ){
+            res = a*16.88;
+        }
+        if(c.getSelectedItem() == "EUR" && d.getSelectedItem() == "AUD/NZD"   ){
+            res = a*1.49;
+        }
+        if(c.getSelectedItem() == "JPY" && d.getSelectedItem() == "USD"   ){
+            res = a*0.0078;
+        }
+        if(c.getSelectedItem() == "JPY" && d.getSelectedItem() == "INR"   ){
+            res = a*0.5948;
+        }
+        if(c.getSelectedItem() == "JPY" && d.getSelectedItem() == "EUR"   ){
+            res = a*0.0072;
+        }
+        if(c.getSelectedItem() == "JPY" && d.getSelectedItem() == "JPY"   ){
+            res = a;
+        }
+        if(c.getSelectedItem() == "JPY" && d.getSelectedItem() == "ZAR"   ){
+            res = a*0.1208;
+        }
+        if(c.getSelectedItem() == "JPY" && d.getSelectedItem() == "AUD/NZD"   ){
+            res = a*0.0107;
+        }
+        if(c.getSelectedItem() == "ZAR" && d.getSelectedItem() == "USD"   ){
+            res = a*0.0644;
+        }
+        if(c.getSelectedItem() == "ZAR" && d.getSelectedItem() == "INR"   ){
+            res = a*4.9249;
+        }
+        if(c.getSelectedItem() == "ZAR" && d.getSelectedItem() == "EUR"   ){
+            res = a*0.0596;
+        }
+        if(c.getSelectedItem() == "ZAR" && d.getSelectedItem() == "JPY"   ){
+            res = a*8.2899;
+        }
+        if(c.getSelectedItem() == "ZAR" && d.getSelectedItem() == "ZAR"   ){
+            res = a;
+        }
+        if(c.getSelectedItem() == "ZAR" && d.getSelectedItem() == "AUD/NZD"   ){
+            res = a*0.089;
+        }
+        if(c.getSelectedItem() == "AUD/NZD" && d.getSelectedItem() == "USD"   ){
+            res = a*0.7247;
+        }
+        if(c.getSelectedItem() == "AUD/NZD" && d.getSelectedItem() == "INR"   ){
+            res = a*55.42;
+        }
+        if(c.getSelectedItem() == "AUD/NZD" && d.getSelectedItem() == "EUR"   ){
+            res = a*0.6708;
+        }
+        if(c.getSelectedItem() == "AUD/NZD" && d.getSelectedItem() == "JPY"   ){
+            res = a*93.1061;
+        }
+        if(c.getSelectedItem() == "AUD/NZD" && d.getSelectedItem() == "ZAR"   ){
+            res = a*11.25;
+        }
+        if(c.getSelectedItem() == "AUD/NZD" && d.getSelectedItem() == "AUD/NZD"   ){
+            res = a;
+        }
+
+            tf3.setText(Double.toString(res));
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+if(e.getSource() == b1){
+    panel.setVisible(false);
+    b1.setVisible(false);
+}
+    }
+}
+public class CurrencyConverter {
+public static void main(String[] args){
+    new Currency();
+    /* SOURCE CONTRIBUTED BY 
+    GITHUB - https://github.com/mrhjharsh/harsh-jain
+     */
+}
+}
